@@ -1,8 +1,23 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.local/bin:/usr/local/bin:~/Library/Python/2.7/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/lzjwlt/.oh-my-zsh"
+export ZSH=~/.oh-my-zsh
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export AUTOENV_ENV_FILENAME='.virtualenv'
+export EDITOR='nvim'
+review() {
+  git log --graph --color=always \
+      --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
+  fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
+      --bind "ctrl-m:execute:
+                (grep -o '[a-f0-9]\{7\}' | head -1 |
+                xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
+                {}
+FZF-EOF"
+}
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -60,11 +75,23 @@ ZSH_THEME="refined"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  fzf
-  zsh-autosuggestions
+  git-flow
+  git-flow-completion
+  brew
+  brew-cask
+  osx
+  archlinux
+  autojump
+  docker
+  docker-compose
+  golang
+  iterm2
+  vi-mode
   zsh-syntax-highlighting
+  zsh-autosuggestions
+  zsh-completions
+  fzf
 )
-
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -95,8 +122,12 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias vim="$(which nvim)"
+alias vi="$(which nvim)"
+alias ~~="~/Documents"
+# alias vir="source $(pipenv --venv)/bin/activate"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-alias vim="$(which nvim)"
-alias vi="$(which nvim)"
+export RUSTUP_DIST_SERVER=https://mirrors.ustc.edu.cn/rust-static
+export RUSTUP_UPDATE_ROOT=https://mirrors.ustc.edu.cn/rust-static/rustup
