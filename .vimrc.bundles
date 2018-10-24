@@ -416,7 +416,8 @@ let g:LanguageClient_serverCommands = {
     \   '-Xmx1G',
     \   '-jar', '/Users/lzjwlt/Projects/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/plugins/org.eclipse.equinox.launcher_1.5.0.v20180512-1130.jar',
     \   '-configuration', '/Users/lzjwlt/Projects/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/config_mac',
-    \   '-data',]
+    \   '-data',],
+    \ 'go': ['go-langserver']
     \ }
 
 nnoremap <silent> gk :call LanguageClient_textDocument_hover()<CR>
