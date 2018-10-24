@@ -1,7 +1,11 @@
 [user]
 	name = lzjustc 
 	email = ustclzj@foxmail.com
+<<<<<<< HEAD
 	username = lzjustc
+=======
+	username = lzjustc 
+>>>>>>> a77339b1e8606f06ee814a38ab8aae8880cf2bd1
 [core]
 	editor = nvim
 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol

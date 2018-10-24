@@ -100,3 +100,7 @@ source $ZSH/oh-my-zsh.sh
 
 alias vim="$(which nvim)"
 alias vi="$(which nvim)"
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
+export GOROOT=/usr/local/opt/go/libexec
+export GOPATH=$HOME/.go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
