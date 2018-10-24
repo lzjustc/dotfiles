@@ -1,7 +1,7 @@
 [user]
-	name = drinks
-	email = me@mum5.cn
-	username = drinksober
+	name = lzjustc 
+	email = ustclzj@foxmail.com
+	username = lzjustc
 [core]
 	editor = nvim
 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
